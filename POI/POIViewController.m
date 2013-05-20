@@ -26,9 +26,9 @@
 #import "MBProgressHUD.h"
 
 
-
 @interface POIViewController ()
-
+@property (strong, nonatomic) CLLocationManager *lm;
+@property (strong, nonatomic) CLLocation *location;
 @end
 
 
@@ -38,11 +38,11 @@
 @synthesize slt;
 
 
-
 // This method is used to create an annotation view for a point of interest on the site map used in this application
+/*
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     static NSString *identifier = @"SiteLocation";
-    NSLog(@"mapView viewForAnnotation called");
+    //NSLog(@"mapView viewForAnnotation called");
     if ([annotation isKindOfClass:[SiteLocation class]]) {
         MKAnnotationView *annotationView = (MKAnnotationView *) [_mapView dequeueReusableAnnotationViewWithIdentifier: identifier];
         if (annotationView == nil) {
@@ -59,6 +59,27 @@
     }
     return nil;
 }
+*/
+
+- (MKAnnotationView *) mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    if( annotation == mapView.userLocation ) return nil;
+    
+    MKPinAnnotationView *annotationView;
+    annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"SiteLocation"];
+    if( annotationView == nil ){
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"SiteLocation"];
+        annotationView.image = [UIImage imageNamed:@"KC_pin.png"];//here we use a nice image instead of the default pins
+        annotationView.enabled = YES;
+        annotationView.canShowCallout = YES;
+        annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    } else {
+        annotationView.annotation = annotation;
+    }
+    
+    return annotationView;
+}
+
 
 
 // This method of the MKMapView class is called when an annotation view (pin) is clicked
@@ -94,10 +115,8 @@
     
     [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObject:@"text/plain"]];
     
-    
     [self.fliteController say:@"Welcome to the Points Of Interest guide! Please press the Update Sites button for points of interest near you" withVoice:self.slt];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -107,16 +126,14 @@
 
 
 - (void)viewWillAppear:(BOOL)animated {
-    
     //Don't Forget To Adopt CLLocationManagerDelegate  protocol in POIViewController.h
     
     //set up the Location Manager in order to get the current location
-    CLLocationManager *lm = [[CLLocationManager alloc] init];
-    lm = [[CLLocationManager alloc] init];
-    lm.delegate = self;
-    lm.desiredAccuracy = kCLLocationAccuracyBest;
-    lm.distanceFilter = DISTANCE_FILTER_VALUE;
-    [lm startUpdatingLocation];
+    _lm = [[CLLocationManager alloc] init];
+    _lm.delegate = self;
+    _lm.desiredAccuracy = kCLLocationAccuracyBest;
+    _lm.distanceFilter = DISTANCE_FILTER_VALUE;
+    [_lm startUpdatingLocation];
     
     // Zoom to the Location of Cowork Waldo, Kansas City Missouri
     //_youAreHere.latitude = 38.9929360;
@@ -128,19 +145,20 @@
     //_youAreHere.latitude = 38.971667;
     //_youAreHere.longitude = -95.235278;
     
-    CLLocation *location = [lm location];
+    //CLLocation *location = [lm location];
+    _location = [_lm location];
     
     // The current location of the IOS device is a variable of type CLLocationCoordinate2D
-    CLLocationCoordinate2D youAreHere = [location coordinate];
+    CLLocationCoordinate2D youAreHere = [self.location coordinate];
     
     // Show the zoom location being used
-    NSLog(@"Current Latitude: %f, Current Longitude: %f", youAreHere.latitude, youAreHere.longitude);
+    //NSLog(@"Current Latitude: %f, Current Longitude: %f", youAreHere.latitude, youAreHere.longitude);
     
     // Set up a map viewing location of 1/2 mile radius around the current location
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(youAreHere, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
     
-    [_mapView setRegion:viewRegion animated:YES];
-    
+    [self.mapView setRegion:viewRegion animated:YES];
+   
 }
 
 
@@ -154,17 +172,15 @@
 }
 
 
-- (void)plotSitePositions:(NSDictionary *)JSON {
-
-    for (id<MKAnnotation> annotation in _mapView.annotations) {
-        [_mapView removeAnnotation:annotation];
+- (void)plotSitePositions:(NSDictionary *)jsonData {
+    for (id<MKAnnotation> annotation in self.mapView.annotations) {
+        [self.mapView removeAnnotation:annotation];
     }
-    if(!JSON) {
-        NSLog(@"Error parsing JSON");
+    if(!jsonData) {
+        NSLog(@"Error parsing JSON data");
     } else {
-        for(NSDictionary *site in [JSON objectForKey:@"results"]) {
+        for(NSDictionary *site in [jsonData objectForKey:@"results"]) {
             //NSLog(@"%@", site);
-          
            for (NSDictionary *geometry in [site objectForKey:@"geometry"]) {
                //NSLog(@"%@", site);
                NSString *name      = [site objectForKey:@"name"];
@@ -175,7 +191,7 @@
                coordinate.latitude = latitude.doubleValue;
                coordinate.longitude = longitude.doubleValue;
                SiteLocation *annotation = [[SiteLocation alloc] initWithName:name address:address coordinate:coordinate];
-               [_mapView addAnnotation:annotation];
+               [self.mapView addAnnotation:annotation];
            }
            
         }
@@ -188,12 +204,12 @@
     //Don't Forget To Adopt CLLocationManagerDelegate  protocol in POIViewController.h
     
     //set up the Location Manager in order to get the current location
-    CLLocationManager *lm = [[CLLocationManager alloc] init];
-    lm = [[CLLocationManager alloc] init];
-    lm.delegate = self;
-    lm.desiredAccuracy = kCLLocationAccuracyBest;
-    lm.distanceFilter = DISTANCE_FILTER_VALUE;
-    [lm startUpdatingLocation];
+    //CLLocationManager *lm = [[CLLocationManager alloc] init];
+    _lm = [[CLLocationManager alloc] init];
+    _lm.delegate = self;
+    _lm.desiredAccuracy = kCLLocationAccuracyBest;
+    _lm.distanceFilter = DISTANCE_FILTER_VALUE;
+    [_lm startUpdatingLocation];
     
     // Zoom to the Location of Cowork Waldo, Kansas City Missouri
     //_youAreHere.latitude = 38.9929360;
@@ -202,29 +218,24 @@
     //                          or
     //
     // Zoom to the GPS coodinates location for downtown Lawrence, Kansas
-    //_youAreHere.latitude = 38.971667;
+    //_youAreHere.latitude  = 38.971667;
     //_youAreHere.longitude = -95.235278;
     
-    CLLocation *currentLocation = [lm location];
+    //currentLocation = [_lm location];
+    _location = [_lm location];
     
     // The current location of the IOS device is a variable of type CLLocationCoordinate2D
-    CLLocationCoordinate2D youAreHere = [currentLocation coordinate];
-    
+    CLLocationCoordinate2D youAreHere = [_location coordinate];
     
     // Set up a map viewing location of 1/2 mile radius around the current location
     MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(youAreHere, 0.5*METERS_PER_MILE, 0.5*METERS_PER_MILE);
-    
     [_mapView setRegion:viewRegion animated:YES];
     
-    
-    NSString *location = [NSString stringWithFormat:@"%f,%f", youAreHere.latitude, youAreHere.longitude];
-    
-    NSLog(@"Loading points Of interest near %@", location);
-    
+    NSLog(@"Loading points Of interest near %@", self.location);
     [self.fliteController say:@"Loading points Of interest near you." withVoice:self.slt];
 
    /**********************************************************************************
-    *  Description fo the Google Place Nearby Search request and JSON format results *
+    *  Description for the Google Place Nearby Search request and JSON format results *
     **********************************************************************************
     
     A Nearby Search request is an HTTP URL of the following form:
@@ -296,8 +307,11 @@
     **********************************************************************************
     */
     
+    
     // ******** Google Places registered key ********
     NSString *key = @"AIzaSyATKtn7vfUPQ__vDMuSLaVhsBK7GR_hI64";
+    
+    NSString *location = [NSString stringWithFormat:@"%f,%f", youAreHere.latitude, youAreHere.longitude];
     
     // Basic URL with Objective C string formatting variable for the "location" and "key" values, placed in: searchString
     NSString *basicURL = [NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@&radius=500&sensor=false&key=%@",location,key];
@@ -310,27 +324,22 @@
     NSURL *url = [NSURL URLWithString:encodedString];
     // JSON request for AFJSON
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    // JSON resonse returned
-    // JSON error returned
-    //NSError *error = [[NSError alloc] init];
     
-
     [AFJSONRequestOperation addAcceptableContentTypes:[NSSet setWithObject:@"text/html"]];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
- 
         // Success Block code.  This code is executed when a web service call is successful
         //NSLog(@"Successful AFSONRequestOperation call");
         //NSLog(@"%@", JSON);
+        [self plotSitePositions:(NSDictionary *) JSON];
         // Turn progress indicator off
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        [self plotSitePositions:(NSDictionary *) JSON];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         // Failure Block code.  This code is executed when a web service call doesn't work.
         NSLog(@"The was problem accessing the Google Place data, try again");
         NSLog(@"An AFJSON request error occurred: %@", error);
-        [self.fliteController say:@"There was a problem accessing the Google Place data, try again." withVoice:self.slt];
         // Turn progress indicator off;
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [self.fliteController say:@"There was a problem accessing the Google Place data, try again." withVoice:self.slt];
     }];
     
     [operation start];
@@ -338,9 +347,6 @@
     // Start progress indicator running
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading points of interest.";
-    //[self plotSitePositions:responseData];
-    
-   
 }
 
 

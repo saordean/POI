@@ -21,7 +21,7 @@ Slt *slt;
 @property (strong, nonatomic) Slt *slt;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
-- (IBAction)updateButton:(id)sender;
+
 //- (void)mapView:(MKMapView *)siteMap didSelectAnnotationView:(MKAnnotationView *)annotationView;
 //- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation> )annotation;
 

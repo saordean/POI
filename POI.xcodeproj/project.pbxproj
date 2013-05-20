@@ -23,7 +23,6 @@
 		F20D44EB1733650C0012914C /* OpenEarsCorpus.txt in Resources */ = {isa = PBXBuildFile; fileRef = F20D44DC1733650C0012914C /* OpenEarsCorpus.txt */; };
 		F20D44EC1733650C0012914C /* Slt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20D44DD1733650C0012914C /* Slt.framework */; };
 		F20D44EE17336CC20012914C /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F20D44ED17336CC20012914C /* AudioToolbox.framework */; };
-		F217CD0A1738886600172325 /* I_heart_Boston.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F217CD091738886600172325 /* I_heart_Boston.jpg */; };
 		F217CD0E173889D000172325 /* Barbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F217CD0D173889D000172325 /* Barbutton@2x.png */; };
 		F217CD10173889D500172325 /* Navbar.png in Resources */ = {isa = PBXBuildFile; fileRef = F217CD0F173889D500172325 /* Navbar.png */; };
 		F217CD12173889DB00172325 /* Navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F217CD11173889DB00172325 /* Navbar@2x.png */; };
@@ -39,9 +38,12 @@
 		F21ECC671729ED6700D178F9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F21ECC661729ED6700D178F9 /* MapKit.framework */; };
 		F21ECC691729ED8200D178F9 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F21ECC681729ED8200D178F9 /* libz.dylib */; };
 		F21ECC6F1729EE3500D178F9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F21ECC6E1729EE3500D178F9 /* CFNetwork.framework */; };
-		F21ECC951729FF9F00D178F9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F21ECC871729F3C400D178F9 /* MBProgressHUD.m */; };
 		F227FB631732DF6100C1BFD1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F21ECC641729ED4E00D178F9 /* CoreLocation.framework */; };
 		F22D7D73172B0753000C1B57 /* SiteLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F21ECC891729F4AE00D178F9 /* SiteLocation.m */; };
+		F2505D0F1749AE77003DCA5F /* KC_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = F2505D0E1749AE77003DCA5F /* KC_pin.png */; };
+		F2505D141749B15E003DCA5F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F2505D131749B15E003DCA5F /* MBProgressHUD.m */; };
+		F2505D161749B97C003DCA5F /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2505D151749B97C003DCA5F /* Default-568@2x.png */; };
+		F2505D181749BA03003DCA5F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2505D171749BA03003DCA5F /* Default-568h@2x.png */; };
 		F26D46361735976800587D3C /* POI_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F26D46351735976800587D3C /* POI_icon.png */; };
 		F26D46381735977700587D3C /* POI_icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = F26D46371735977700587D3C /* POI_icon_small.png */; };
 		F2945CA0172DF22600754CBF /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2945C9F172DF22600754CBF /* AddressBook.framework */; };
@@ -58,10 +60,7 @@
 		F29BDB23172C47760089CA95 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F21ECC6C1729EE1A00D178F9 /* SystemConfiguration.framework */; };
 		F2B99E7817332E7100267AE4 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2B99E7717332E7100267AE4 /* AVFoundation.framework */; };
 		F2BFAF151734E3A200D4AC26 /* POI_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = F2BFAF141734E3A200D4AC26 /* POI_pin.png */; };
-		F2E14A22173A917900249785 /* 800px-Flakbunker-Heiligengeistfeld-Hamburg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2E14A21173A917900249785 /* 800px-Flakbunker-Heiligengeistfeld-Hamburg.jpg */; };
 		F2E14A24173AB13800249785 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E14A23173AB13800249785 /* Default.png */; };
-		F2E14A26173AB15400249785 /* Default-568@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E14A25173AB15400249785 /* Default-568@2x.png */; };
-		F2E14A28173AB19C00249785 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E14A27173AB19C00249785 /* Default-568h@2x.png */; };
 		F2E14A2A173AB1D400249785 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2E14A29173AB1D400249785 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +81,6 @@
 		F20D44DC1733650C0012914C /* OpenEarsCorpus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OpenEarsCorpus.txt; sourceTree = "<group>"; };
 		F20D44DD1733650C0012914C /* Slt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Slt.framework; sourceTree = "<group>"; };
 		F20D44ED17336CC20012914C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		F217CD091738886600172325 /* I_heart_Boston.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = I_heart_Boston.jpg; sourceTree = "<group>"; };
 		F217CD0D173889D000172325 /* Barbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Barbutton@2x.png"; sourceTree = "<group>"; };
 		F217CD0F173889D500172325 /* Navbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Navbar.png; sourceTree = "<group>"; };
 		F217CD11173889DB00172325 /* Navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Navbar@2x.png"; sourceTree = "<group>"; };
@@ -105,10 +103,13 @@
 		F21ECC6A1729EDEA00D178F9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F21ECC6C1729EE1A00D178F9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F21ECC6E1729EE3500D178F9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		F21ECC861729F3C400D178F9 /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		F21ECC871729F3C400D178F9 /* MBProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		F21ECC881729F4AE00D178F9 /* SiteLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SiteLocation.h; path = ../POI/SiteLocation.h; sourceTree = "<group>"; };
 		F21ECC891729F4AE00D178F9 /* SiteLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SiteLocation.m; path = ../POI/SiteLocation.m; sourceTree = "<group>"; };
+		F2505D0E1749AE77003DCA5F /* KC_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KC_pin.png; sourceTree = "<group>"; };
+		F2505D121749B150003DCA5F /* MBProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		F2505D131749B15E003DCA5F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		F2505D151749B97C003DCA5F /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
+		F2505D171749BA03003DCA5F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F26D46351735976800587D3C /* POI_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = POI_icon.png; path = ../POI/POI_icon.png; sourceTree = "<group>"; };
 		F26D46371735977700587D3C /* POI_icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = POI_icon_small.png; path = ../POI/POI_icon_small.png; sourceTree = "<group>"; };
 		F2945C9F172DF22600754CBF /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -133,10 +134,7 @@
 		F29BDB20172C41840089CA95 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		F2B99E7717332E7100267AE4 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		F2BFAF141734E3A200D4AC26 /* POI_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = POI_pin.png; path = ../POI/POI_pin.png; sourceTree = "<group>"; };
-		F2E14A21173A917900249785 /* 800px-Flakbunker-Heiligengeistfeld-Hamburg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "800px-Flakbunker-Heiligengeistfeld-Hamburg.jpg"; sourceTree = "<group>"; };
 		F2E14A23173AB13800249785 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		F2E14A25173AB15400249785 /* Default-568@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568@2x.png"; sourceTree = "<group>"; };
-		F2E14A27173AB19C00249785 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F2E14A29173AB1D400249785 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +196,7 @@
 		F21ECC351729ED2900D178F9 = {
 			isa = PBXGroup;
 			children = (
-				F2E14A27173AB19C00249785 /* Default-568h@2x.png */,
+				F2505D171749BA03003DCA5F /* Default-568h@2x.png */,
 				F21ECC401729ED2900D178F9 /* Frameworks */,
 				F21ECC681729ED8200D178F9 /* libz.dylib */,
 				F21ECC471729ED2900D178F9 /* POI */,
@@ -236,9 +234,10 @@
 		F21ECC471729ED2900D178F9 /* POI */ = {
 			isa = PBXGroup;
 			children = (
+				F2505D131749B15E003DCA5F /* MBProgressHUD.m */,
+				F2505D121749B150003DCA5F /* MBProgressHUD.h */,
 				F20D44CD1733650C0012914C /* Framework */,
 				F29BDB03172C3E650089CA95 /* AFNetworking */,
-				F21ECC851729F39600D178F9 /* MBProgressHUD */,
 				F21ECC881729F4AE00D178F9 /* SiteLocation.h */,
 				F21ECC501729ED2900D178F9 /* POIViewController.h */,
 				F21ECC511729ED2900D178F9 /* POIAppDelegate.m */,
@@ -253,15 +252,14 @@
 		F21ECC481729ED2900D178F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F2E14A21173A917900249785 /* 800px-Flakbunker-Heiligengeistfeld-Hamburg.jpg */,
-				F2E14A25173AB15400249785 /* Default-568@2x.png */,
+				F2505D151749B97C003DCA5F /* Default-568@2x.png */,
+				F2505D0E1749AE77003DCA5F /* KC_pin.png */,
 				F2E14A29173AB1D400249785 /* Default@2x.png */,
 				F2E14A23173AB13800249785 /* Default.png */,
 				F217CD11173889DB00172325 /* Navbar@2x.png */,
 				F217CD13173889E100172325 /* NinjaIcon@2x.png */,
 				F217CD0F173889D500172325 /* Navbar.png */,
 				F217CD0D173889D000172325 /* Barbutton@2x.png */,
-				F217CD091738886600172325 /* I_heart_Boston.jpg */,
 				F26D46371735977700587D3C /* POI_icon_small.png */,
 				F26D46351735976800587D3C /* POI_icon.png */,
 				F2BFAF141734E3A200D4AC26 /* POI_pin.png */,
@@ -271,16 +269,6 @@
 				F21ECC4F1729ED2900D178F9 /* POI-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F21ECC851729F39600D178F9 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				F21ECC861729F3C400D178F9 /* MBProgressHUD.h */,
-				F21ECC871729F3C400D178F9 /* MBProgressHUD.m */,
-			);
-			name = MBProgressHUD;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		F29BDB03172C3E650089CA95 /* AFNetworking */ = {
@@ -380,16 +368,15 @@
 				F2BFAF151734E3A200D4AC26 /* POI_pin.png in Resources */,
 				F26D46361735976800587D3C /* POI_icon.png in Resources */,
 				F26D46381735977700587D3C /* POI_icon_small.png in Resources */,
-				F217CD0A1738886600172325 /* I_heart_Boston.jpg in Resources */,
 				F217CD0E173889D000172325 /* Barbutton@2x.png in Resources */,
 				F217CD10173889D500172325 /* Navbar.png in Resources */,
 				F217CD12173889DB00172325 /* Navbar@2x.png in Resources */,
 				F217CD14173889E100172325 /* NinjaIcon@2x.png in Resources */,
-				F2E14A22173A917900249785 /* 800px-Flakbunker-Heiligengeistfeld-Hamburg.jpg in Resources */,
 				F2E14A24173AB13800249785 /* Default.png in Resources */,
-				F2E14A26173AB15400249785 /* Default-568@2x.png in Resources */,
-				F2E14A28173AB19C00249785 /* Default-568h@2x.png in Resources */,
 				F2E14A2A173AB1D400249785 /* Default@2x.png in Resources */,
+				F2505D0F1749AE77003DCA5F /* KC_pin.png in Resources */,
+				F2505D161749B97C003DCA5F /* Default-568@2x.png in Resources */,
+				F2505D181749BA03003DCA5F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,10 +397,10 @@
 				F29BDB16172C3F6E0089CA95 /* AFHTTPRequestOperation.m in Sources */,
 				F29BDB15172C3F660089CA95 /* AFHTTPClient.m in Sources */,
 				F22D7D73172B0753000C1B57 /* SiteLocation.m in Sources */,
-				F21ECC951729FF9F00D178F9 /* MBProgressHUD.m in Sources */,
 				F21ECC521729ED2900D178F9 /* POIAppDelegate.m in Sources */,
 				F21ECC4E1729ED2900D178F9 /* main.m in Sources */,
 				F21ECC5E1729ED2900D178F9 /* POIViewController.m in Sources */,
+				F2505D141749B15E003DCA5F /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
